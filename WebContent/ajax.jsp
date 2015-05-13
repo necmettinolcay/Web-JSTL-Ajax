@@ -24,7 +24,7 @@
        <%
        try{
            Class.forName("com.mysql.jdbc.Driver").newInstance();
-		   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/okul?user=root&password=7056");
+	   Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/okul?user=root&password=7056");
        	   Statement statement = connection.createStatement() ;
            resultset =statement.executeQuery("select * from togrenci") ;
      	   while(resultset.next()){ %>
@@ -34,13 +34,13 @@
          out.println("wrong entry"+e);
        } %>
      	</select>
-   		<br/>
-   		<br/>
-   		<input type="button" value="Göster"
+   	<br/>
+   	<br/>
+   	<input type="button" value="Göster"
           onclick='xmlStudentTable("ogrenciID", "student-table")'/>
-  	   </form>
-  	   <p/>
-   	   <div id="student-table"></div>
+      </form>
+      <p/>
+      <div id="student-table"></div>
     </fieldset>
   </div>
 </body>
