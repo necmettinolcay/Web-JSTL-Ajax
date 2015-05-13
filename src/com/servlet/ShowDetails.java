@@ -42,7 +42,7 @@ public class ShowDetails extends HttpServlet {
 	        		+ "and tders.dersID=togrenciders.dersID and togrenci.ogrenciID="+ogrenciID) ;
 	        
 	        while(resultset.next()){
-	            id = resultset.getString("togrenci.ogrenciID");
+	        	id = resultset.getString("togrenci.ogrenciID");
 	        	ad = resultset.getString("togrenci.ad");
 	        	ders = resultset.getString("tders.dersAd");
 	        	
