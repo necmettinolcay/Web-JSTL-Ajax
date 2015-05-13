@@ -23,7 +23,7 @@ public class ShowDetails extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setHeader("Cache-Control", "no-cache");
-	    	response.setHeader("Pragma", "no-cache");
+	    response.setHeader("Pragma", "no-cache");
 		String ogrenciID = request.getParameter("ogrenciID");
 		String format = request.getParameter("formar");
 		ResultSet resultset = null;
@@ -32,26 +32,26 @@ public class ShowDetails extends HttpServlet {
 		ArrayList<StudentBean> center = new ArrayList<StudentBean>();
 		
 		try{
-	    		Class.forName("com.mysql.jdbc.Driver").newInstance();
+	    	Class.forName("com.mysql.jdbc.Driver").newInstance();
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/okul?"
-					+ "user=root&password=7056");
-	        	Statement statement = connection.createStatement() ;
-	        	resultset = statement.executeQuery("select togrenci.ogrenciID, togrenci.ad, tders.dersAd from "
-	        		+ "togrenci,tders,togrenciders "
-	        		+ "where togrenci.ogrenciID=togrenciders.ogrenciID "
-	        		+ "and tders.dersID=togrenciders.dersID and togrenci.ogrenciID="+ogrenciID) ;
+				+ "user=root&password=7056");
+	        Statement statement = connection.createStatement() ;
+	        resultset = statement.executeQuery("select togrenci.ogrenciID, togrenci.ad, tders.dersAd from "
+	        	+ "togrenci,tders,togrenciders "
+	        	+ "where togrenci.ogrenciID=togrenciders.ogrenciID "
+	        	+ "and tders.dersID=togrenciders.dersID and togrenci.ogrenciID="+ogrenciID) ;
 	        
-	        	while(resultset.next()){
-	        		id = resultset.getString("togrenci.ogrenciID");
-	        		ad = resultset.getString("togrenci.ad");
-	        		ders = resultset.getString("tders.dersAd");
+	        while(resultset.next()){
+	        	id = resultset.getString("togrenci.ogrenciID");
+	        	ad = resultset.getString("togrenci.ad");
+	        	ders = resultset.getString("tders.dersAd");
 	        	
-	        		StudentBean bean = new StudentBean();
-	        		bean.setID(id);
-	        		bean.setName(ad);
-	        		bean.setLesson(ders);
-	        		center.add(bean);
-	        	} 
+	        	StudentBean bean = new StudentBean();
+	        	bean.setID(id);
+	        	bean.setName(ad);
+	        	bean.setLesson(ders);
+	        	center.add(bean);
+	        } 
 	        } catch (Exception ex) {
 	        	System.out.print(ex);
 	    	}
