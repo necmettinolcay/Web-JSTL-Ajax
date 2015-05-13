@@ -23,7 +23,7 @@ public class ShowDetails extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setHeader("Cache-Control", "no-cache");
-	    response.setHeader("Pragma", "no-cache");
+	        response.setHeader("Pragma", "no-cache");
 		String ogrenciID = request.getParameter("ogrenciID");
 		String format = request.getParameter("formar");
 		ResultSet resultset = null;
@@ -33,7 +33,7 @@ public class ShowDetails extends HttpServlet {
 		
 		try{
 	    	Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/okul?"
+	        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/okul?"
 				+ "user=root&password=7056");
 	        Statement statement = connection.createStatement() ;
 	        resultset = statement.executeQuery("select togrenci.ogrenciID, togrenci.ad, tders.dersAd from "
